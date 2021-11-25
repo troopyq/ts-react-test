@@ -31,7 +31,7 @@ function App() {
   // функция преобразования массива в древовидную структуру
   function listToTree(arr: IDataObject[]): IDataObject[] {
     // сортируем массив от детей до родителей
-    const newArr: IDataObject[] = arr.sort((a: IDataObject, b: IDataObject) => b.path.length - a.path.length);
+    const newArr: IDataObject[] = arr.sort((a: IDataObject, b: IDataObject) => b.path.split('.').length - a.path.split('.').length);
   
     const res: IDataObject[] = [];
     for (let el of newArr) {
