@@ -1,0 +1,38 @@
+.ListItem {
+	position: relative;
+	padding: 8px 0;
+	padding-left: 70px;
+	cursor: pointer;
+}
+.ListItem:hover {
+	background-color: rgba(255, 255, 255, 0.032);
+}
+
+.ListItem::after {
+	content: '';
+	position: absolute;
+	display: inline-block;
+	top: 50%;
+	left: 40px;
+	width: 20px;
+	height: 20px;
+	background: url('./icons/cube2.svg');
+	transform: translateY(-50%);
+}
+.ListItem::before {
+	content: '';
+	position: absolute;
+	display: inline-block;
+	top: 50%;
+	left: 10px;
+	width: 25px;
+	height: 25px;
+	transform-origin: 50%;
+	background: url('./icons/arrow2.svg');
+	background-size: contain;
+	transform: translateY(-50%) rotate(-90deg);
+	transition: all 0.11s ease-in-out;
+}
+.ListItem.open::before {
+	transform: translateY(-50%) rotate(0deg);
+}
