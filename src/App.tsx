@@ -41,17 +41,20 @@ function App() {
           (par: IDataObject) =>
             el.path !== par.path &&
             el.path.includes(par.path) &&
-            el.path.length - 2 === par.path.length,
+            el.path.split('.').length - 1 === par.path.split('.').length,
         );
       
       // заносим детей к родителям, и к корневым родителям
       if (parent) {
         if (!Array.isArray(parent.child)) parent.child = [];
         parent.child.push(el);
+
         // если корневой родитель, то заносим в res
-        if (parent.path.length === 1) res.push(parent);
+      }else if(el.path.split('.').length === 1){
+        res.push(el);
       }
     } /* завершение цикла for */
+    
     return res;
   }
 
